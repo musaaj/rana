@@ -2,7 +2,7 @@
 #include "lexer.h"
 
 unsigned int length = 0;
-static unsigned int current = 0;
+unsigned int current = 0;
 unsigned int line = 1;
 unsigned int column = 0;
 bool has_error = false;

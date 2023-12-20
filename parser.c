@@ -6,7 +6,6 @@ static bool parser_error = false;
 bool get_parser_error(){ return parser_error;}
 
 expr_t* parse_expr(int prec) {
-  print_token(peek());
   expr_t* expr = parse_term();
   while (!eof() && prec < get_prec(peek())) {
     token_t* token = next();
@@ -55,7 +54,7 @@ expr_t* new_expr(expr_t* left, token_t* value, expr_t* right) {
 }
 
 int get_prec(token_t* token) {
-  //if (!token) return 0;
+  if (!token) return 0;
   switch (token->type) {
     case EQUAL: return 10;
     case PLUS:
