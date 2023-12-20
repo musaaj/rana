@@ -15,18 +15,17 @@ char* _getline() {
 }
 
 int main(int argc, char** argv) {
-  token_t** l = malloc(sizeof(token_t) * 40);
   char* input = NULL;
-  size_t c = 1024;
   if (argc != 2) {
     printf("Rana v0.0.1\n");
     while (1) {
       printf(">> ");
       input = _getline();
       lexer(input);
-      expr_t* expr = parse_expr();
+      expr_t* expr = parse_expr(0);
       if (!get_parser_error()) pretty_print(expr);
       printf("\n");
+      free(expr);
     }
   } else {
     printf("%s run\n", argv[1]);

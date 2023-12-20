@@ -10,7 +10,7 @@ typedef struct expression_s {
 } expr_t;
 
 expr_t* new_expr(expr_t* left, token_t* value, expr_t* right);
-expr_t* parse_expr();
+expr_t* parse_expr(int);
 expr_t* parse_term();
 bool get_parser_error();
 int get_prec(token_t* token);
